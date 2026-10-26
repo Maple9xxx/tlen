@@ -1,6 +1,6 @@
 <!doctype html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no"><meta name="theme-color" content="#04100b"><title>Trợ thủ Tiến Lên</title>
 <style>
-:root{--ink:#eaf2ec;--mut:#8fa89b;--gold:#e8c065;--gf:#2a1d00;--red:#ff6f61;--glass:rgba(8,20,15,.88);--line:rgba(232,192,101,.22);--sh:48dvh}
+:root{--ink:#eaf2ec;--mut:#8fa89b;--gold:#e8c065;--gf:#2a1d00;--red:#ff6f61;--glass:rgba(8,20,15,.88);--line:rgba(232,192,101,.22);--sh:clamp(330px,48dvh,430px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;height:100%;overflow:hidden;background:#04100b;color:var(--ink);font:15px/1.35 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;touch-action:manipulation;overscroll-behavior:none}
 #c{position:fixed;left:0;top:0;right:0;bottom:var(--sh);background:radial-gradient(120% 90% at 50% 40%,#12402e,#04100b 75%)}
@@ -13,30 +13,35 @@ html,body{margin:0;height:100%;overflow:hidden;background:#04100b;color:var(--in
 .lb b{display:block;font-size:13px}.lb span{display:inline-block;margin-top:2px;padding:1px 9px;border-radius:9px;background:rgba(0,0,0,.5);color:var(--mut)}
 .lb.t span{background:var(--gold);color:var(--gf);font-weight:700}.lb.f span{background:#2f7d57;color:#fff}.lb.p{opacity:.55}.lb.off{display:none}.seg.n3{grid-template-columns:repeat(3,1fr)}
 #st{position:fixed;left:50%;transform:translateX(-50%);top:calc(env(safe-area-inset-top,0px) + 56px);padding:5px 14px;border-radius:14px;background:rgba(0,0,0,.5);font-size:13px;pointer-events:none;white-space:nowrap;max-width:94vw;overflow:hidden;text-overflow:ellipsis}
-#sh{position:fixed;left:0;right:0;bottom:0;height:var(--sh);background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);border-radius:20px 20px 0 0;overflow-y:auto;overscroll-behavior:contain;padding:12px 12px calc(env(safe-area-inset-bottom,0px) + 16px)}
-@media(min-width:860px){:root{--sh:0px}#c{right:400px}#sh{left:auto;width:400px;top:0;height:auto;border-radius:0;border-left:1px solid var(--line);border-top:0}}
+#sh{position:fixed;left:0;right:0;bottom:0;height:var(--sh);display:flex;flex-direction:column;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--line);border-radius:20px 20px 0 0;overflow:hidden;padding:10px 12px 0}
+@media(min-width:860px){:root{--sh:0px}#c{right:400px}#sh{left:auto;width:400px;top:0;height:auto;border-radius:0;border-left:1px solid var(--line);border-top:0}.pg{flex:none!important;height:190px}}
 body.no3d{--sh:100dvh}body.no3d #c,body.no3d .lb{display:none}
-h2{font:600 14px Georgia,serif;color:var(--gold);margin:14px 0 8px}h2:first-child{margin-top:2px}
-.s{color:var(--mut);font-size:12px;margin:6px 0}
-button{font:inherit;color:var(--ink);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-height:44px}button:disabled{opacity:.35}
-.go{background:linear-gradient(#f2cf7a,#d8a73f);color:var(--gf);border:0;font-weight:700;width:100%;box-shadow:0 4px 18px rgba(232,192,101,.25)}
-.row{display:flex;gap:8px;margin-top:10px}.row>*{flex:1}
-.sb{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:8px}
-.k{min-height:46px;padding:0;border-radius:9px;background:#f6f1e4;color:#14201a;border:1px solid #cfc7b2;font:700 16px/1.05 Georgia,serif;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;transition:transform .12s}
-.k small{font-size:13px;font-weight:400}.k.r{color:#c9302c}.k:disabled{opacity:.18}
-.k.on{background:linear-gradient(#f2cf7a,#d8a73f);transform:translateY(-4px);box-shadow:0 6px 12px rgba(0,0,0,.45)}.k.on::after{content:"✓";position:absolute;top:1px;right:4px;font-size:10px}
+h2{font:600 14px Georgia,serif;color:var(--gold);margin:0}.s{color:var(--mut);font-size:12px;margin:0}
+button{font:inherit;color:var(--ink);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:12px;padding:8px 12px;min-height:44px}button:disabled{opacity:.35}
+.go{background:linear-gradient(#f2cf7a,#d8a73f);color:var(--gf);border:0;font-weight:700;width:100%;min-height:50px;box-shadow:0 4px 18px rgba(232,192,101,.25)}
+.pn{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}.pn.sc{overflow-y:auto;overscroll-behavior:contain}.pn>.go:last-child{margin-top:auto}.mid{margin:auto}
+.tb{flex:none;display:flex;gap:4px;padding:6px 0 calc(env(safe-area-inset-bottom,0px) + 6px);border-top:1px solid var(--line);margin-top:8px}
+.tb button{flex:1;min-height:44px;padding:0 4px;font-size:13px;background:none;border:0;color:var(--mut)}.tb button.on{background:rgba(232,192,101,.16);color:var(--gold);font-weight:700}
+.hr{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:none}.sm{min-height:34px;padding:4px 10px;font-size:12px}
+.row{display:flex;gap:8px;flex:none}.row>*{flex:1}.row .go{flex:2}
+.su{display:flex;gap:6px;flex:none}.su button{flex:1;min-height:46px;padding:0;font:700 22px/1 serif;position:relative}.su .r{color:#ff8a7d}.su .on{background:rgba(232,192,101,.22);border-color:var(--gold)}
+.su i{position:absolute;top:2px;right:5px;font:700 11px/1 system-ui;background:var(--gold);color:var(--gf);border-radius:8px;padding:2px 5px}
+.pg{flex:1;min-height:0;display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:minmax(0,1fr);gap:6px}
+.k{padding:0;min-height:0;border-radius:10px;background:#f6f1e4;color:#14201a;border:1px solid #cfc7b2;font:700 20px Georgia,serif;position:relative;transition:transform .12s}.k.r{color:#c9302c}.k:disabled{opacity:.18}
+.k.on{background:linear-gradient(#f2cf7a,#d8a73f);transform:translateY(-3px);box-shadow:0 6px 12px rgba(0,0,0,.45)}.k.on::after{content:"✓";position:absolute;top:2px;right:5px;font-size:10px}
+.ss{flex:none;display:flex;align-items:center;gap:3px;overflow-x:auto;min-height:30px;scrollbar-width:none}.ss span{color:var(--mut);font-size:12px}.ss .cd{flex:none;margin:0}
 .cd{display:inline-block;min-width:30px;padding:3px 4px;margin:2px 2px 2px 0;border-radius:6px;background:#f6f1e4;color:#14201a;font:700 13px Georgia,serif;text-align:center}.cd.r{color:#c9302c}
-.sl{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -12px;padding:2px 12px 8px}
-.sg{flex:0 0 78%;scroll-snap-align:start;border:1px solid var(--line);border-radius:14px;padding:10px;background:rgba(255,255,255,.05)}
-.sg.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 22px rgba(232,192,101,.2)}.sg small{color:var(--mut);display:block}
-.bar{height:4px;border-radius:2px;background:rgba(255,255,255,.1);margin:6px 0 8px;overflow:hidden}.bar i{display:block;height:100%;background:var(--gold)}
-.ok{background:rgba(63,182,122,.18);border:1px solid rgba(63,182,122,.4);padding:10px;border-radius:12px;margin:8px 0;font-weight:600}
-.er{background:rgba(255,111,97,.15);border:1px solid rgba(255,111,97,.4);color:#ffb4ab;padding:9px;border-radius:12px;margin-top:8px}
+.sl{flex:1;min-height:0;display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -12px;padding:0 12px;scrollbar-width:none}.sl::-webkit-scrollbar{display:none}
+.sg{flex:0 0 84%;scroll-snap-align:center;display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:16px;padding:10px;background:rgba(255,255,255,.05)}
+.sg.on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 0 22px rgba(232,192,101,.2)}.sg small{color:var(--mut)}
+.cc{flex:1;min-height:0;overflow:hidden}.cc .cd{font-size:17px;min-width:36px;padding:6px 5px}
+.bar{flex:none;height:4px;border-radius:2px;background:rgba(255,255,255,.1);overflow:hidden}.bar i{display:block;height:100%;background:var(--gold)}
+.dots{flex:none;display:flex;justify-content:center;gap:6px;min-height:10px}.dots i{width:7px;height:7px;border-radius:4px;background:rgba(255,255,255,.25);transition:width .15s}.dots i.on{background:var(--gold);width:18px}
+.ok{flex:none;background:rgba(63,182,122,.18);border:1px solid rgba(63,182,122,.4);padding:8px 10px;border-radius:12px;font-weight:600}
 .nm{display:flex;gap:6px}.nm input{flex:1;min-width:0;padding:10px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.07);color:var(--ink);font:inherit;font-size:16px}
-.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.seg .on{background:var(--gold);color:var(--gf);border-color:var(--gold);font-weight:700}
-details{margin-top:8px}summary{padding:10px 0;color:var(--gold);font-weight:600;min-height:44px}
-.g{display:flex;gap:8px;align-items:center;border-bottom:1px solid var(--line);padding:3px 0}.g span{width:84px;flex:none;font-size:12px;color:var(--mut)}
-.un{display:grid;grid-template-columns:repeat(13,1fr);gap:2px;font-size:11px;text-align:center}.un div{background:rgba(255,255,255,.06);border-radius:5px;padding:2px 0;min-height:58px}.un b{display:block}.un span{display:block}.un .two{outline:1px solid var(--red)}.un .r{color:var(--red)}
+.seg{display:grid;gap:6px}.seg button{min-height:50px;font-weight:600}.seg .on{background:var(--gold);color:var(--gf);border-color:var(--gold)}
+.g{display:flex;flex-wrap:wrap;align-items:center;gap:2px;border-bottom:1px solid var(--line);padding:3px 0}.g small{width:100%;color:var(--mut);font-size:11px}
+.un{display:grid;grid-template-columns:repeat(13,1fr);gap:2px;font-size:11px;text-align:center}.un div{background:rgba(255,255,255,.06);border-radius:5px;padding:2px 0;min-height:52px}.un b{display:block}.un span{display:block}.un .two{outline:1px solid var(--red)}.un .r{color:var(--red)}
 .lgi{padding:3px 0;border-bottom:1px solid var(--line);font-size:13px}
 #bi[hidden]{display:none}#tt{display:none;position:fixed;left:50%;bottom:calc(var(--sh) + 14px);transform:translateX(-50%);width:max-content;max-width:90vw;padding:10px 14px;border-radius:14px;background:rgba(8,20,15,.96);border:1px solid var(--gold);font-size:13px;text-align:center;z-index:5}
 </style></head><body><div id="c"></div><div id="hud"><h1>Trợ thủ Tiến Lên</h1><button class="ib" id="bi" data-a="inst" title="Cài về máy" hidden>⬇</button><button class="ib" id="bs" data-a="snd">🔊</button><button class="ib" id="bu" data-a="undo">↶</button><button class="ib" data-a="reset">⟲</button></div><div id="st"></div><div id="lbs"></div><div id="sh"></div><div id="tt"></div>
@@ -116,7 +121,7 @@ if(typeof module!=='undefined')module.exports={ctype,beats,gen,legal,arrange,tra
 
 /* ===== UI 3D (three.js r128): bàn nỉ + bài 3D; bottom-sheet DOM lo thao tác chạm ===== */
 const $=s=>document.querySelector(s),ALL=[...Array(52).keys()];
-let S=null,UNDO=[],SEL=[],PK={av:new Set(),max:13},FIRST=0,NAMES=['Tôi','Sau tôi','Đối diện','Trước tôi'],MSG='',SUG=null,PV=0,TOK=0,NNP=null,MUTE=false,OPEN={},NP=4;
+let S=null,UNDO=[],SEL=[],PK={av:new Set(),max:13},FIRST=0,NAMES=['Tôi','Sau tôi','Đối diện','Trước tôi'],MSG='',SUG=null,PV=0,TOK=0,NNP=null,MUTE=false,OPEN={},NP=4,TAB=0,SUIT=0;
 const chip=c=>`<i class="cd${st(c)>1?' r':''}">${RL[rk(c)]}${SL[st(c)]}</i>`,chips=m=>m.map(chip).join('');
 const used=()=>new Set([...S.hand,...S.played.flat()]),left=p=>p?13-S.played[p].length:S.hand.length,over=()=>S.fin.includes(0)||S.fin.length>=S.on.length-1;
 const SEATS={2:[0,2],3:[0,1,3],4:[0,1,2,3]},ON=p=>(S?S.on:SEATS[NP]).includes(p); // ghế đang chơi theo số người
@@ -159,31 +164,35 @@ function loop(now){requestAnimationFrame(loop);const dt=Math.min((now-LT)/1000,.
  LP.forEach((p,i)=>{V3.set(p[0],p[1],p[2]).project(CAM);LB[i].style.transform=`translate(${(V3.x*.5+.5)*CW}px,${(.5-V3.y*.5)*CH}px) translate(-50%,-50%)`});R.render(SC,CAM)}
 const LB=[0,1,2,3].map(()=>{const e=document.createElement('div');$('#lbs').appendChild(e);return e});
 /* ---- sheet (DOM) ---- */
-function picker(av,sel,max){PK={av:new Set(av),max};let h='';for(let s=0;s<4;s++){h+='<div class="sb">';for(let r=0;r<13;r++){const c=r*4+s;h+=`<button class="k${s>1?' r':''}${sel.includes(c)?' on':''}" data-c="${c}" ${PK.av.has(c)?'':'disabled'}>${RL[r]}<small>${SL[s]}</small></button>`}h+='</div>'}return h}
-const groups=h=>arrange(h).map(m=>`<div class="g"><span>${tname(m)}</span><div>${chips(m)}</div></div>`).join('');
-const dt=(k,t,b)=>`<details data-k="${k}" ${OPEN[k]?'open':''}><summary>${t}</summary>${b}</details>`;
-function rSetup(){const tr=trang(SEL),ac=SEATS[NP];
- return `<h2>Số người chơi</h2><div class="seg n3">${[2,3,4].map(n=>`<button data-a="np" data-v="${n}" class="${NP==n?'on':''}">${n} người</button>`).join('')}</div>${NP<4?'<p class="s">Mô hình được huấn luyện cho bàn 4 người — với 2–3 người, gợi ý chỉ mang tính tham khảo.</p>':''}
- <h2>Chọn 13 lá trên tay · ${SEL.length}/13</h2>${picker(ALL,SEL,13)}${tr.length?`<div class="ok">🎉 Tới trắng: ${tr.join(', ')}</div>`:''}${SEL.length?dt('grp','Gợi ý sắp bài',groups(SEL)):''}
- <h2>Ai đi trước?</h2><div class="nm">${ac.filter(i=>i).map(i=>`<input data-n="${i}" value="${NAMES[i]}" maxlength="12" aria-label="Tên người chơi ${i}">`).join('')}</div>
- <div class="seg" style="grid-template-columns:repeat(${ac.length},1fr)">${ac.map(i=>`<button data-a="first" data-i="${i}" class="${FIRST==i?'on':''}">${i?NAMES[i]:'Tôi'}</button>`).join('')}</div><p class="s">Thứ tự lượt: ${ac.map(i=>i?NAMES[i]:'Tôi').join(' → ')} → Tôi</p>
- <button class="go" data-a="start" ${SEL.length==13?'':'disabled'}>Bắt đầu ván</button><p class="s">${NN?'Mô hình đã sẵn sàng':'Đang nạp mô hình…'}</p>`}
-function rPlay(){const T=S.table,u=used(),pl=S.turn;let h='';
- if(over())h+=`<div class="ok">Hết ván. ${S.fin.includes(0)?`Tôi về hạng ${S.fin.indexOf(0)+1} 🏆`:'Tôi bị thua'}</div>`;
- else if(pl==0){h+='<h2>Gợi ý nước đi</h2>';
-  if(SUG){const mx=SUG[0].v,mn=SUG[Math.min(SUG.length,6)-1].v;h+='<div class="sl">'+SUG.slice(0,6).map((x,i)=>`<div class="sg${i==PV?' on':''}" data-p="${i}"><small>${i?'':'★ Tốt nhất · '}${tname(x.c)}</small><div>${x.c.length?chips(x.c):'<b>Bỏ lượt</b>'}</div><div class="bar"><i style="width:${mx==mn?100:12+88*(x.v-mn)/(mx-mn)}%"></i></div><button class="go" data-a="me" data-i="${i}">${x.c.length?'Đánh':'Bỏ lượt'}</button></div>`).join('')+'</div>'}
-  else h+=`<p class="s">Đang tính nước đi… (${NN?'mô hình chạy trên máy':'đang nạp mô hình'})</p>`;
-  h+=dt('mine','Tự chọn lá để đánh',picker(S.hand,SEL,13)+`<button class="go" data-a="mine" ${SEL.length?'':'disabled'}>Đánh ${SEL.length} lá</button>`)}
- else h+=`<h2>${NAMES[pl]} vừa ra gì?</h2>${picker(ALL.filter(c=>!u.has(c)),SEL,Math.min(12,left(pl)))}<div class="row"><button class="go" data-a="opp" ${SEL.length?'':'disabled'}>${NAMES[pl]} đánh ${SEL.length} lá</button><button data-a="pass" ${T?'':'disabled'}>Bỏ lượt</button></div>`;
- if(MSG)h+=`<div class="er">${MSG}</div>`;
- h+=dt('hand',`Bài tôi (${S.hand.length}) · sắp bài`,groups(S.hand));
- h+=dt('trk','Theo dõi bài',`<p class="s">Chưa ra (không tính bài tôi)</p><div class="un">${RL.map((r,i)=>`<div class="${i==12?'two':''}"><b>${r}</b>${[0,1,2,3].filter(s=>!u.has(i*4+s)).map(s=>`<span class="${s>1?'r':''}">${SL[s]}</span>`).join('')}</div>`).join('')}</div><p class="s">Diễn biến</p>${S.log.slice(-12).reverse().map(e=>`<div class="lgi"><b>${NAMES[e.p]}</b> ${e.c.length?chips(e.c):'<em>bỏ</em>'}</div>`).join('')||'<em>chưa có</em>'}`);
- return h+'<p class="s">Luật: heo bị chặt bởi tứ quý / 3-4 đôi thông; tứ quý bị 4 đôi thông chặt. Mô hình DMC cho 4 người.</p>'}
+/* ===== Dock không cuộn dọc: mỗi màn vừa khít, đổi màn bằng tab dưới cùng; chọn bài theo tab chất ===== */
+const strip=s=>`<div class="ss">${s.length?chips([...s].sort((a,b)=>a-b)):'<span>Chưa chọn lá nào</span>'}</div>`;
+const tabs=t=>'<nav class="tb">'+t.map((x,i)=>`<button data-t="${i}" class="${TAB==i?'on':''}">${x}</button>`).join('')+'</nav>';
+function picker(av,sel,max){PK={av:new Set(av),max};const n=s=>sel.filter(c=>st(c)==s).length;
+ let h='<div class="su">'+[0,1,2,3].map(s=>`<button data-su="${s}" class="${SUIT==s?'on':''}${s>1?' r':''}" aria-label="Chất ${SL[s]}">${SL[s]}${n(s)?`<i>${n(s)}</i>`:''}</button>`).join('')+'</div><div class="pg">';
+ for(let r=0;r<13;r++){const c=r*4+SUIT;h+=`<button class="k${SUIT>1?' r':''}${sel.includes(c)?' on':''}" data-c="${c}" ${PK.av.has(c)?'':'disabled'}>${RL[r]}</button>`}return h+'</div>'}
+const groups=h=>arrange(h).map(m=>`<div class="g"><small>${tname(m)}</small>${chips(m)}</div>`).join('');
+function rSetup(){const tr=trang(SEL),ac=SEATS[NP];let p;
+ if(TAB==0)p=`<div class="pn"><h2>Số người chơi</h2><div class="seg n3">${[2,3,4].map(n=>`<button data-a="np" data-v="${n}" class="${NP==n?'on':''}">${n} người</button>`).join('')}</div>${NP<4?'<p class="s">Mô hình huấn luyện cho bàn 4 người — 2–3 người chỉ để tham khảo.</p>':''}
+  <h2>Ai đi trước?</h2><div class="seg" style="grid-template-columns:repeat(${ac.length},1fr)">${ac.map(i=>`<button data-a="first" data-i="${i}" class="${FIRST==i?'on':''}">${i?NAMES[i]:'Tôi'}</button>`).join('')}</div>
+  <div class="nm">${ac.filter(i=>i).map(i=>`<input data-n="${i}" value="${NAMES[i]}" maxlength="12" aria-label="Tên người chơi ${i}">`).join('')}</div>
+  <button class="go" data-a="step">Tiếp: chọn bài →</button></div>`;
+ else p=`<div class="pn"><div class="hr"><h2>Chọn 13 lá · ${SEL.length}/13</h2><button class="sm" data-a="clr" ${SEL.length?'':'disabled'}>Xóa hết</button></div>${picker(ALL,SEL,13)}${tr.length?`<div class="ok">🎉 Tới trắng: ${tr.join(', ')}</div>`:strip(SEL)}<button class="go" data-a="start" ${SEL.length==13?'':'disabled'}>${SEL.length==13?'Bắt đầu ván':`Còn ${13-SEL.length} lá`}</button></div>`;
+ return p+tabs(['① Bàn chơi','② Chọn bài'])}
+function rPlay(){const T=S.table,u=used(),pl=S.turn,ov=over(),mine=pl==0&&!ov,tl=[mine?'Gợi ý':ov?'Kết quả':NAMES[pl]+' ra',...(mine?['Tự chọn']:[]),'Bài tôi','Theo dõi'],key=['main',...(mine?['mine']:[]),'hand','trk'][Math.min(TAB,tl.length-1)];let p;
+ if(key=='main'){
+  if(ov)p=`<div class="pn"><div class="ok">Hết ván. ${S.fin.includes(0)?`Tôi về hạng ${S.fin.indexOf(0)+1} 🏆`:'Tôi bị thua'}</div><button class="go" data-a="again">Ván mới</button></div>`;
+  else if(mine){const n=SUG?Math.min(SUG.length,6):0,mx=n?SUG[0].v:0,mn=n?SUG[n-1].v:0;
+   p=`<div class="pn">${n?`<div class="sl">${SUG.slice(0,n).map((x,i)=>`<div class="sg${i==PV?' on':''}" data-p="${i}"><small>${i?'Lựa chọn '+(i+1):'★ Tốt nhất'} · ${tname(x.c)}</small><div class="cc">${x.c.length?chips(x.c):'<b>Bỏ lượt</b>'}</div><div class="bar"><i style="width:${mx==mn?100:12+88*(x.v-mn)/(mx-mn)}%"></i></div><button class="go" data-a="me" data-i="${i}">${x.c.length?'Đánh':'Bỏ lượt'}</button></div>`).join('')}</div><div class="dots">${SUG.slice(0,n).map((x,i)=>`<i class="${i==PV?'on':''}"></i>`).join('')}</div>`:'<p class="s mid">Đang tính nước đi…</p>'}</div>`}
+  else p=`<div class="pn"><div class="hr"><h2>${NAMES[pl]} vừa ra gì?</h2><span class="s">${T?'bàn: '+tname(T.c):'bàn trống'}</span></div>${picker(ALL.filter(c=>!u.has(c)),SEL,Math.min(12,left(pl)))}${strip(SEL)}<div class="row"><button data-a="pass" ${T?'':'disabled'}>Bỏ lượt</button><button class="go" data-a="opp" ${SEL.length?'':'disabled'}>Đánh ${SEL.length} lá</button></div></div>`}
+ else if(key=='mine')p=`<div class="pn"><div class="hr"><h2>Chọn lá để đánh</h2><span class="s">${SEL.length} lá</span></div>${picker(S.hand,SEL,13)}${strip(SEL)}<div class="row"><button data-a="clr" ${SEL.length?'':'disabled'}>Bỏ chọn</button><button class="go" data-a="mine" ${SEL.length?'':'disabled'}>Đánh ${SEL.length} lá</button></div></div>`;
+ else if(key=='hand')p=`<div class="pn sc"><h2>Bài tôi · ${S.hand.length} lá</h2><div>${chips(S.hand)}</div><h2>Sắp bài gợi ý</h2>${groups(S.hand)}</div>`;
+ else p=`<div class="pn sc"><h2>Chưa ra (không tính bài tôi)</h2><div class="un">${RL.map((r,i)=>`<div class="${i==12?'two':''}"><b>${r}</b>${[0,1,2,3].filter(s=>!u.has(i*4+s)).map(s=>`<span class="${s>1?'r':''}">${SL[s]}</span>`).join('')}</div>`).join('')}</div><h2>Diễn biến</h2>${S.log.slice(-4).reverse().map(e=>`<div class="lgi"><b>${NAMES[e.p]}</b> ${e.c.length?chips(e.c):'<em>bỏ</em>'}</div>`).join('')||'<span class="s">chưa có</span>'}</div>`;
+ return p+tabs(tl)}
 function hud(){$('#bu').disabled=!UNDO.length;$('#bs').textContent=MUTE?'🔇':'🔊';
  $('#st').textContent=!S?`${NP} người · chọn bài ${SEL.length}/13`:over()?'Hết ván':(S.turn==0?'Lượt của bạn':'Lượt '+NAMES[S.turn])+(S.table?` · bàn: ${tname(S.table.c)}`:' · bàn trống');
  LB.forEach((e,i)=>{const f=S&&S.fin.includes(i),t=S&&S.turn==i&&!over();e.className='lb'+(ON(i)?'':' off')+(t?' t':'')+(f?' f':'')+(S&&S.passed[i]?' p':'');e.innerHTML=`<b>${NAMES[i]}</b><span>${f?'#'+(S.fin.indexOf(i)+1):(S?left(i):13)+' lá'}</span>`})}
-function render(){const sh=$('#sh'),y=sh.scrollTop;sh.innerHTML=S?rPlay():rSetup();sh.scrollTop=y;hud();sync()}
-function go(){PV=0;$('#sh').scrollTop=0;render();if(S&&!over()&&S.turn==0&&!SUG)calc()}
+function render(){const sh=$('#sh');sh.innerHTML=S?rPlay():rSetup();const sl=$('.sl');if(sl&&sl.firstChild&&PV)sl.scrollLeft=PV*(sl.firstChild.offsetWidth+8);hud();sync();if(MSG){toast(MSG,4500);MSG=''}}
+function go(){PV=0;TAB=0;render();if(S&&!over()&&S.turn==0&&!SUG)calc()}
 function advance(){const act=s=>S.on.includes(s)&&!S.fin.includes(s),live=S.on.filter(s=>act(s)&&!S.passed[s]);
  if(S.table&&(live.length==0||(live.length==1&&live[0]==S.table.p))){let L=S.table.p;while(!act(L))L=(L+1)%4;S.table=null;S.passed=[0,0,0,0];S.turn=L;return}
  let q=S.turn;do{q=(q+1)%4}while(!act(q)||S.passed[q]);S.turn=q}
@@ -198,11 +207,16 @@ async function calc(){const tok=++TOK;SUG=null;const acts=legal(S.hand,S.table&&
  SUG=acts.map((c,i)=>({c,v:sc[i]})).sort((a,b)=>b.v-a.v);render()}
 document.addEventListener('toggle',e=>{if(e.target.dataset&&e.target.dataset.k)OPEN[e.target.dataset.k]=e.target.open},true);
 document.addEventListener('click',e=>{const b=e.target.closest('button');
- if(!b){const g=e.target.closest('.sg');if(g){PV=+g.dataset.p;fx(520);render()}return}
+ if(!b){const g=e.target.closest('.sg');if(g)g.scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});return}
+ if(b.dataset.su!==undefined){SUIT=+b.dataset.su;fx(450,.04,6);render();return}
+ if(b.dataset.t!==undefined){TAB=+b.dataset.t;fx(450,.04,6);render();return}
  if(b.dataset.c!==undefined){const c=+b.dataset.c,i=SEL.indexOf(c);if(i>=0)SEL.splice(i,1);else if(PK.av.has(c)&&SEL.length<PK.max)SEL.push(c);else{fx(180,.08,25);return}fx(i>=0?420:640);render();return}
  const a=b.dataset.a;if(!a)return;fx(500,.05,12);
  if(a=='snd'){MUTE=!MUTE;hud()}
  if(a=='inst')install();
+ if(a=='step'){TAB=1;render()}
+ if(a=='clr'){SEL=[];render()}
+ if(a=='again'){S=null;SEL=[];UNDO=[];SUG=null;TOK++;PV=0;TAB=0;render()}
  if(a=='first'){FIRST=+b.dataset.i;render()}
  if(a=='np'){NP=+b.dataset.v;if(!SEATS[NP].includes(FIRST))FIRST=0;render()}
  if(a=='start'){S={hand:[...SEL].sort((x,y)=>x-y),played:[[],[],[],[]],log:[],table:null,passed:[0,0,0,0],fin:[],on:SEATS[NP].slice(),turn:FIRST};SEL=[];UNDO=[];go()}
@@ -211,7 +225,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');
  if(a=='opp'){MSG=act(S.turn,SEL);go()}
  if(a=='pass'){MSG=act(S.turn,[]);go()}
  if(a=='undo'&&UNDO.length){S=JSON.parse(UNDO.pop());SEL=[];MSG='';SUG=null;TOK++;go()}
- if(a=='reset'&&confirm('Bắt đầu ván mới?')){S=null;SEL=[];UNDO=[];SUG=null;TOK++;PV=0;render()}});
+ if(a=='reset'&&confirm('Bắt đầu ván mới?')){S=null;SEL=[];UNDO=[];SUG=null;TOK++;PV=0;TAB=0;render()}});
 document.addEventListener('input',e=>{if(e.target.dataset.n){NAMES[+e.target.dataset.n]=e.target.value||NAMES[+e.target.dataset.n];hud()}});
 /* ===== Cài về máy (PWA): manifest tạo động, icon vẽ bằng canvas, không cần file ngoài ===== */
 let DP=null;const IOS=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform=='MacIntel'&&navigator.maxTouchPoints>1),
@@ -230,6 +244,8 @@ if(!FRAMED){const a=document.createElement('link');a.rel='apple-touch-icon';a.hr
  if(HTTP){const u=location.href.split('#')[0].split('?')[0],mf={name:'Trợ thủ Tiến Lên',short_name:'Tiến Lên',lang:'vi',start_url:u,scope:u.slice(0,u.lastIndexOf('/')+1),display:'standalone',orientation:'portrait',background_color:'#04100b',theme_color:'#04100b',icons:[192,512].map(n=>({src:icon(n),sizes:n+'x'+n,type:'image/png',purpose:'any'}))},
   l=document.createElement('link');l.rel='manifest';l.href=URL.createObjectURL(new Blob([JSON.stringify(mf)],{type:'application/manifest+json'}));document.head.appendChild(l);
   navigator.serviceWorker&&navigator.serviceWorker.register('./sw.js').catch(()=>{})}} // sw.js đặt cạnh file HTML để chạy offline (không có cũng không lỗi)
+document.addEventListener('scroll',e=>{const sl=e.target;if(!sl.classList||!sl.classList.contains('sl')||!sl.firstChild||!SUG)return;const i=Math.max(0,Math.min(Math.min(SUG.length,6)-1,Math.round(sl.scrollLeft/(sl.firstChild.offsetWidth+8))));if(i==PV)return;PV=i;
+ sl.querySelectorAll('.sg').forEach((g,j)=>g.classList.toggle('on',j==i));document.querySelectorAll('.dots i').forEach((d,j)=>d.classList.toggle('on',j==i));fx(520,.03,5);sync()},true);
 addEventListener('resize',rs);rs();
 NNP=Promise.resolve().then(()=>{loadNN($('#w').textContent.trim());render()});render();if(R)requestAnimationFrame(loop);
 
